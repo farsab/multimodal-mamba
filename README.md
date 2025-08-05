@@ -4,7 +4,7 @@
 This repository contains a full PyTorch implementation of a multimodal deep learning pipeline that uses [Mamba](https://github.com/state-spaces/mamba) —  to process and fuse image and text data for classification.
 ---
 
-## Features
+## Highlight
 
 * **Multimodal Fusion**: Combines image features (ResNet) and text sequences (Mamba).
 * **Mamba Integration**: Uses `mamba-ssm` for efficient long-sequence modeling.
@@ -37,8 +37,8 @@ Training will run for 10 epochs on synthetic image + text pairs, printing accura
 
 ```text
 Text Input (L x 768) ──▶ Mamba ─▶ Mean Pool ─▶ Linear ─┐
-                                                      │
-Image Input (3x224x224) ─▶ ResNet18 ─▶ Linear ─────────┘
+                                                         │
+Image Input (3x224x224) ─▶ ResNet18 ─▶ Linear  ─────────┘
                       ▼
             [ Concatenate + ReLU + Dropout ]
                       ▼
@@ -62,35 +62,24 @@ mamba_multimodal/
 
 ---
 
-## 📊 Example Output
-
-```
-Epoch 1: Loss = 1.3251, Acc = 0.2531
-Epoch 2: Loss = 1.1189, Acc = 0.4144
-...
-Epoch 10: Loss = 0.8921, Acc = 0.6437
-```
-
----
 
 ## Notes
 
-* The dataset is synthetic for demonstration purposes. You can replace `SyntheticMultimodalDataset` with any real dataset like:
+* The dataset is synthetic for demonstration purposes. You can replace `SyntheticMultimodalDataset` with any real dataset like if you have the computational capacity:
 
   * VQA
   * MSCOCO (images + captions)
   * MIMIC-CXR (X-ray + report)
-* The model can be extended with:
 
+* I am extendeing the model to experiment with:
   * Cross-attention
   * Multimodal transformers
   * Late fusion
-
 ---
 
 ## Citation
 
-If you use this repo in your work, consider citing:
+The code is based on the SSM repository. If you use this repo in your work, consider citing:
 
 > [State Space Models: Mamba](https://github.com/state-spaces/mamba)
 > Gu, Dao, et al. "Mamba: Linear-Time Sequence Modeling with Selective SSMs." (2023)
